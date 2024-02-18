@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!-- hacer php include header.php para ahorrar codigo -->
 
 <head>
     <meta charset="UTF-8">
@@ -17,16 +16,18 @@
 <body>
     <div class="container">
         <div class="glass">
-            <div class="card-header">
-                <h4>Bienvenido a la Pagina de Inventario <br> Biblioteca UPRA</h4>
+            <div>
+                <h5>Bienvenido a la Pagina de Inventario </h5>
+                <h5> Biblioteca UPRA</h5>
             </div>
+            <hr>
 
             <div class="card-body">
-                <h5 class="card-title">Ingrese las credenciales para entrar</h5>
+                <h6 class="card-title">Ingrese las credenciales para entrar</h6>
                 <form action="login.php" method="post">
                     <label>Email</label><br>
                     <input type="email" class="card-text" name="email" placeholder="...@upr.edu"></input><br>
-                    <label>Contraseña:</label><br>
+                    <label>Contraseña</label><br>
                     <input type="password" class="card-text" name="pwd" placeholder="Contraseña"></input><br>
                     <button class="btn" type="submit" name="submit">Entrar</button>
                 </form>
@@ -36,6 +37,5 @@
     </div>
 
 </body>
-<!-- hacer php include footer.php para ahorrar codigo -->
 
 </html>
