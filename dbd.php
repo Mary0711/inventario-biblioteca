@@ -7,7 +7,7 @@ $dbUsername = "root";
 $dbPassword = "";
 $dbName = "inventario_db";
 
-$conn = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
+$conn = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName,"3305");
 
 if (!$conn) {
     die("Connefction failed: " . mysqli_connect_error());

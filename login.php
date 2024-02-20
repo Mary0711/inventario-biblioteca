@@ -11,13 +11,13 @@ if(isset($_POST["submit"])){
 
     //error handles
     if(emptyInputLogin($email, $pwd) !== false){
-        header("Location: ../index.php?error=emptyinput");
+        header("Location: /index.php?error=emptyinput");
         exit();
     }
     //
 
     loginUser($conn, $email, $pwd);
 }else {
-    header("Location: ../login.php"); //send it back to the login form
+    header("Location: /login.php"); //send it back to the login form
     exit();
 }
