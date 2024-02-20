@@ -1,35 +1,23 @@
 <?php
+//handles the login script
 
-if($_SERVER["REQUEST_METHOD"] === "POST"){
-    $email= $_POST["email"];
-    $pwd=$_POST["pwd"];
-
-    try {
-        require_once 'dbd.php';
-        require_once 'login_controller.php';
-        require_once 'login_model.php';
-        require_once 'login_view.php';
-
-        //error handlers
-        $errors = [];
-        if(is_input_empty($name, $pwd)){
-            $errors["empty_input"] = "Fill in all fields";
-        }
-        
-        
-        require_once 'config_session.php';
-
-        if($errors){
-            $_SESSION["errors_login"] = $errors;
-        }
+if(isset($_POST["submit"])){
+    $email = $_POST["email"];
+    $pwd = $_POST["pwd"];
 
 
+    require_once 'dbd.php';
+    require_once 'functions.php';
 
-    } catch (PDOException $e) {
-        die("Query failed: " . $e->getMessage());
+    //error handles
+    if(emptyInputLogin($email, $pwd) !== false){
+        header("Location: ../index.php?error=emptyinput");
+        exit();
     }
-}
-else{
-    header("Location: ../index.php");
-    die();
+    //
+
+    loginUser($conn, $email, $pwd);
+}else {
+    header("Location: ../login.php"); //send it back to the login form
+    exit();
 }

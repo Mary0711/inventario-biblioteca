@@ -1,3 +1,8 @@
+<?php
+session_start(); //??? 
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -31,8 +36,20 @@
                     <input type="password" class="card-text" name="pwd" placeholder="Contraseña"></input><br>
                     <button class="btn" type="submit" name="submit">Entrar</button>
                 </form>
+
+                <?php 
+                if(isset($_GET["error"])){
+                    if($_GET["error"] == "emptyinput" ){
+                        echo "<p> Ingrese todas sus credenciales? </p>";
+                    } else if($_GET["error"] ==  "wronglogin" ){
+                        echo "<p> Informacion incorrecta. </p>";
+                    } 
+                }
+                ?>
             </div>
         </div>
+
+
 
     </div>
 
