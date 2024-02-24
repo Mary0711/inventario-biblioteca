@@ -1,0 +1,49 @@
+@startuml
+map User{
+    username => string
+    email => string
+    password => string
+    status => bool
+    role => string
+}
+
+map Equipos{
+    name => string
+    desc => string
+    type => string
+    area => string
+    floor => string
+    serial => string
+    property# => string
+    owner => username
+    status => bool
+    date => date
+}
+
+map Objeto{
+    name => string
+    desc => string
+    area => string
+    floor => string
+    serial => string
+    property# => string
+    owner => username
+    status => bool
+    date => date
+}
+
+map Decomisado {
+    name => string
+    id => serial#
+    date => date
+}
+
+map Categoria {
+    type => 
+}
+
+User::username -> Equipos::owner
+User::username -> Objeto::owner
+Equipos::serial -> Decomisado::id
+Objeto::serial -> Decomisado::id
+@enduml
