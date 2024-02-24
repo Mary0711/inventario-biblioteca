@@ -1,0 +1,12 @@
+:root {
+  --amarillo: #ffb300;
+  --gris: #46443d;
+}
+
+main {
+  background-color: antiquewhite;
+}
+
+aside {
+  background-color: var(--gris);
+}
