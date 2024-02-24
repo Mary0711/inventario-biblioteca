@@ -44,7 +44,7 @@ class functions extends DB
         $resultData = $this->run_stmt_query($sql, "s", $email);
 
         if (!$resultData) {
-            header("Location: /login.php?error=statementFailed");
+            header("Location: /code/login.php?error=statementFailed");
             exit();
         }
 
@@ -70,11 +70,11 @@ class functions extends DB
         $sql = 'INSERT INTO users (username, email, password, role) VALUES (?,?,?,?);';
         $result = $this->run_stmt_query($sql, "ssss", $username, $email, $hashedPwd, $role);
         if (!$result) {
-            header("Location: /login.php?error=statementFailed");
+            header("Location: /code/login.php?error=statementFailed");
             exit();
         }
 
-        header("Location: /login.php?error=none"); //1
+        header("Location: /code/login.php?error=none"); //1
         exit();
     }
 
@@ -117,7 +117,7 @@ class functions extends DB
 
             $_SESSION['user'] = new user($userExist['user_id'], $userExist['username'], $userExist['email']);
 
-            header("Location: /inventario.php");
+            header("Location: /pages/inventario.php");
             exit();
         }
     }

@@ -17,6 +17,6 @@ if (isset($_POST["submit"])) {
 
     $functions->login_user($email, $pwd);
 } else {
-    header("Location: /login.php"); //send it back to the login form
+    header("Location: /?login"); //send it back to the login form
     exit();
 }

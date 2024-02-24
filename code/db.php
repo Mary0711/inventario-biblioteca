@@ -21,6 +21,10 @@ class DB
         } catch (Exception $e) {
             $this->conn = mysqli_connect($this->servername, $this->username, $this->pass, $this->dbname, "3306");
         }
+
+        if (!$this->conn) {
+            header("Location: error.php?connection=0");
+        }
     }
 
     public function run_stmt_query($query, $types,  ...$params)
