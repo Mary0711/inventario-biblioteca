@@ -19,8 +19,8 @@
     <div class="sidebar">
         <div class="top">
             <div class="logo">
-                <i class="bx bxl-codepen"></i>
-                <span>UPR Arecibo</span>
+                <!-- <i class="bx bxl-codepen"></i> -->
+                <span>Universidad de Puerto Rico </span>
             </div>
             <i class="bx bx-menu" id="btn"></i>
         </div>
@@ -36,31 +36,27 @@
             <!-- CAMBIAR CADA ICON -->
             <li>
                 <a href="#">
-                    <i class="bx bx-grid-alt"></i>
+                    <i class="bx bxs-dashboard"></i>
                     <span class="nav-item">Dashboard</span>
                 </a>
-                <span class="tooltip">Dashboard</span>
             </li>
             <li>
                 <a href="#">
-                    <i class="bx bxs-grid-alt"></i>
+                    <i class="bx bx-search-alt"></i>
                     <span class="nav-item">Search</span>
                 </a>
-                <span class="tooltip">Search</span>
             </li>
             <li>
                 <a href="#">
-                    <i class="bx bx-list-check"></i>
+                    <i class="bx bxs-report"></i>
                     <span class="nav-item">Reports</span>
                 </a>
-                <span class="tooltip">Reports</span>
             </li>
             <li>
                 <a href="#">
-                    <i class="bx bx-body"></i>
+                    <i class="bx bxs-user"></i>
                     <span class="nav-item">Users</span>
                 </a>
-                <span class="tooltip">Users</span>
 
             </li>
             <li>
@@ -68,17 +64,69 @@
                     <i class="bx bx-log-out"></i>
                     <span class="nav-item">Log Out </span>
                 </a>
-                <span class="tooltip">Log Out</span>
+                <!--  <span class="tooltip">Log Out</span> -->
             </li>
         </ul>
     </div>
 
 
-    <div class="main-content">
+    <main class="main-content">
         <div class="container">
-            <h1>title</h1>
+            <div class="title">
+                <h3>Dashboard</h3>
+            </div>
+            <div class="user-info">
+
+                <div>
+                    <p>Nombre Apellido Apellido</p>
+
+                </div>
+                <img src="../images/userdefault.png" />
+
+            </div>
+
         </div>
-    </div>
+        <div class="summary container">
+            <h5>Resumen</h5>
+            <div class="cards">
+                <div class="card">
+                    <!--     <a href="#"> </a> -->
+                    <div class="card-header">
+                        <i class='bx bxs-category-alt'> </i>
+                        <h6>Categoria</h6>
+                    </div>
+                    <p>1,234</p>
+
+                </div>
+                <div class=" card">
+                    <div class="card-header">
+                        <i class='bx bxs-category-alt'> </i>
+                        <h6>Categoria</h6>
+                    </div>
+                    <p>1,234</p>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <i class='bx bxs-category-alt'> </i>
+                        <h6>Categoria</h6>
+                    </div>
+                    <p>1,234</p>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <i class='bx bxs-category-alt'> </i>
+                        <h6>Categoria</h6>
+                    </div>
+                    <p>1,234</p>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </main>
 
 </body>
 
@@ -91,3 +139,90 @@ btn.onclick = function() {
 </script>
 
 </html>
+
+<!-- tutorial 1
+        <div class="cards">
+            <div class="card1">
+                <span class="bx bxs-bar-chart-alt-2"></span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>titulo</h3>
+                        <h1>numeros</h1>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card2">
+                <span class="bx bxs-bar-chart-alt-2"></span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>titulo</h3>
+                        <h1>numeros</h1>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card3">
+                <span class="bx bxs-bar-chart-alt-2"></span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>titulo</h3>
+                        <h1>numeros</h1>
+                    </div>
+
+                </div>
+            </div>
+        </div> <!-- cards
+        <div class="recents"></div>
+        <h2>Recientes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th> Columna1</th>
+                    <th> Columna2</th>
+                    <th> Columna3</th>
+                    <th> Columna4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> info </td>
+                    <td>info </td>
+                    <td>info</td>
+                    <td>info</td>
+                </tr>
+                <tr>
+                    <td> info </td>
+                    <td>info </td>
+                    <td>info</td>
+                    <td>info</td>
+                </tr>
+                <tr>
+                    <td> info </td>
+                    <td>info </td>
+                    <td>info</td>
+                    <td>info</td>
+                </tr>
+                <tr>
+                    <td> info </td>
+                    <td>info </td>
+                    <td>info</td>
+                    <td>info</td>
+                </tr>
+                <tr>
+                    <td> info </td>
+                    <td>info </td>
+                    <td>info</td>
+                    <td>info</td>
+                </tr>
+                <tr>
+                    <td> info </td>
+                    <td>info </td>
+                    <td>info</td>
+                    <td>info</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="#">Show all</a>
+
+        </div> -->
