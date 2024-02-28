@@ -18,11 +18,7 @@
 <body>
     <div class="sidebar">
         <div class="top">
-            <div class="logo">
-                <!-- <i class="bx bxl-codepen"></i> -->
-                <span>Universidad de Puerto Rico </span>
-            </div>
-            <i class="bx bx-menu" id="btn"></i>
+            <i class="bx bx-menu" id="btn" onclick="changeIcon(this)"></i>
         </div>
         <div class="user">
             <img src="../images/userdefault.png" alt="user image" class="user-img">
@@ -33,7 +29,6 @@
             </div>
         </div>
         <ul>
-            <!-- CAMBIAR CADA ICON -->
             <li>
                 <a href="#">
                     <i class="bx bxs-dashboard"></i>
@@ -136,93 +131,12 @@ let sidebar = document.querySelector('.sidebar');
 btn.onclick = function() {
     sidebar.classList.toggle('active');
 };
+
+let changeIcon = function(icon) {
+    icon.classList.toggle('bx bx-x');
+}
+
+changeIcon = (icon) => icon.classList.toggle('bx bx-x');
 </script>
 
 </html>
-
-<!-- tutorial 1
-        <div class="cards">
-            <div class="card1">
-                <span class="bx bxs-bar-chart-alt-2"></span>
-                <div class="middle">
-                    <div class="left">
-                        <h3>titulo</h3>
-                        <h1>numeros</h1>
-                    </div>
-
-                </div>
-            </div>
-            <div class="card2">
-                <span class="bx bxs-bar-chart-alt-2"></span>
-                <div class="middle">
-                    <div class="left">
-                        <h3>titulo</h3>
-                        <h1>numeros</h1>
-                    </div>
-
-                </div>
-            </div>
-            <div class="card3">
-                <span class="bx bxs-bar-chart-alt-2"></span>
-                <div class="middle">
-                    <div class="left">
-                        <h3>titulo</h3>
-                        <h1>numeros</h1>
-                    </div>
-
-                </div>
-            </div>
-        </div> <!-- cards
-        <div class="recents"></div>
-        <h2>Recientes</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th> Columna1</th>
-                    <th> Columna2</th>
-                    <th> Columna3</th>
-                    <th> Columna4</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td> info </td>
-                    <td>info </td>
-                    <td>info</td>
-                    <td>info</td>
-                </tr>
-                <tr>
-                    <td> info </td>
-                    <td>info </td>
-                    <td>info</td>
-                    <td>info</td>
-                </tr>
-                <tr>
-                    <td> info </td>
-                    <td>info </td>
-                    <td>info</td>
-                    <td>info</td>
-                </tr>
-                <tr>
-                    <td> info </td>
-                    <td>info </td>
-                    <td>info</td>
-                    <td>info</td>
-                </tr>
-                <tr>
-                    <td> info </td>
-                    <td>info </td>
-                    <td>info</td>
-                    <td>info</td>
-                </tr>
-                <tr>
-                    <td> info </td>
-                    <td>info </td>
-                    <td>info</td>
-                    <td>info</td>
-                </tr>
-            </tbody>
-        </table>
-        <a href="#">Show all</a>
-
-        </div> -->
