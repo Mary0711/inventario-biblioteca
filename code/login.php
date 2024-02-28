@@ -1,7 +1,7 @@
 <?php
 //handles the login script
 
-if (isset($_POST["submit"])) {
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $email = $_POST["email"];
     $pwd = $_POST["pwd"];
 
@@ -10,7 +10,7 @@ if (isset($_POST["submit"])) {
 
     //error handles
     if ($functions->check_input($email, $pwd) !== false) {
-        header("Location: /index.php?error=emptyinput");
+        header("Location: ../?error=emptyinput");
         exit();
     }
     //

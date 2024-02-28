@@ -2,9 +2,9 @@
 //procedural and object php are diferent
 //se va a utilizar mysql-i (is more updated)
 
-if (!$conn) {
-    die("Connefction failed: " . mysqli_connect_error());
-}
+//if (!$conn) {
+//    die("Connefction failed: " . mysqli_connect_error());
+//}
 
 class DB
 {

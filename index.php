@@ -30,7 +30,7 @@
 
             <div class="card-body">
                 <h6 class="card-title">Ingrese las credenciales para entrar</h6>
-                <form action="login.php" method="post">
+                <form action="code/login.php" method="post">
                     <label>Email</label><br>
                     <input type="email" class="card-text" name="email" placeholder="...@upr.edu"></input><br>
                     <label>Contraseña</label><br>

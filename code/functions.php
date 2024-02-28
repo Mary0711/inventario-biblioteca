@@ -1,5 +1,6 @@
 <?php
 
+include("db.php");
 class functions extends DB
 {
     /**
@@ -44,7 +45,7 @@ class functions extends DB
         $resultData = $this->run_stmt_query($sql, "s", $email);
 
         if (!$resultData) {
-            header("Location: /code/login.php?error=statementFailed");
+            header("Location: ?error=statementFailed");
             exit();
         }
 
@@ -70,11 +71,11 @@ class functions extends DB
         $sql = 'INSERT INTO users (username, email, password, role) VALUES (?,?,?,?);';
         $result = $this->run_stmt_query($sql, "ssss", $username, $email, $hashedPwd, $role);
         if (!$result) {
-            header("Location: /code/login.php?error=statementFailed");
+            header("Location: ?error=statementFailed");
             exit();
         }
 
-        header("Location: /code/login.php?error=none"); //1
+        header("Location: ?error=none"); //1
         exit();
     }
 
@@ -97,7 +98,7 @@ class functions extends DB
 
         //Si no existe regresa al index
         if ($userExist === false) {
-            header("Location: /index.php?error=wronglogin");
+            header("Location: ../?error=user");
             exit();
         }
 
@@ -109,15 +110,15 @@ class functions extends DB
          * Si la contraseña es correcta lo envia al inventario
          * De lo contrario lo regresa al index
          */
-        if ($checkPwd === false) {
-            header("Location: /index.php?error=wronglogin");
-            exit();
-        } else if ($checkPwd === true) {
+        if ($pwd == $pwdhashed) {
             session_start();
 
             $_SESSION['user'] = new user($userExist['user_id'], $userExist['username'], $userExist['email']);
 
-            header("Location: /pages/inventario.php");
+            header("Location: ../pages/inventario.php");
+            exit();
+        } else {
+            header("Location: ../?error=password");
             exit();
         }
     }
