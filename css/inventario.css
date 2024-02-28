@@ -41,7 +41,7 @@
 .sidebar #btn {
   position: absolute;
   color: var(--blanco);
-  top: 0.4rem;
+  /*top: 1rem;*/
   left: 50%;
   font-size: 1.5rem;
   line-height: 50px;
@@ -51,16 +51,6 @@
 
 .sidebar.active #btn {
   left: 90%;
-}
-
-.sidebar .top .logo {
-  color: var(--blanco);
-  display: flex;
-  height: 50px;
-  width: 100%;
-  align-items: center;
-  pointer-events: none;
-  opacity: 0;
 }
 
 .sidebar.active .top .logo {
@@ -73,7 +63,14 @@
   flex-direction: row;
   text-align: center;
   margin: 0.5rem;
-  margin-top: 3rem;
+  margin-top: 3.5rem;
+  display: none;
+}
+
+.sidebar.active .user {
+  margin-top: 0;
+  display: flex;
+  margin-top: 0.3rem;
 }
 
 .sidebar.active p {
@@ -137,27 +134,6 @@
   display: block;
 }
 
-.sidebar ul li .tooltip {
-  position: absolute;
-  left: 125px;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0.5rem 0.8rem var(--gris);
-  border-radius: 0.6rem;
-  padding: 0.4rem 1.2rem;
-  line-height: 1.8rem;
-  z-index: 20;
-  opacity: 0;
-}
-
-.sidebar ul li:hover .tooltip {
-  opacity: 1;
-}
-
-.sidebar.active ul li .tooltip {
-  display: none;
-}
-
 .sidebar.active ul {
   padding: 0;
 }
@@ -166,7 +142,9 @@
   padding: 0;
   margin-left: 4%;
 }
+/*TODO
 
+bajar los iconos para poder tocar la barra de menu. el top del menu es correcto no borrar*/
 /*MAIN*/
 
 main {

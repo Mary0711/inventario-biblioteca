@@ -70,15 +70,14 @@
             <div class="title">
                 <h3>Dashboard</h3>
             </div>
-            <div class="user-info">
 
+            <!-- <div class="user-info">
                 <div>
                     <p>Nombre Apellido Apellido</p>
-
                 </div>
                 <img src="../images/userdefault.png" />
-
             </div>
+        -->
 
         </div>
         <div class="summary container">
