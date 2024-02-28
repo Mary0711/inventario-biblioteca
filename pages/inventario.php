@@ -90,7 +90,7 @@
                         <i class='bx bxs-category-alt'> </i>
                         <h6>Categoria</h6>
                     </div>
-                    <p>1,234</p>
+                    <h4>1,234</h4>
 
                 </div>
                 <div class=" card">
@@ -132,11 +132,7 @@ btn.onclick = function() {
     sidebar.classList.toggle('active');
 };
 
-let changeIcon = function(icon) {
-    icon.classList.toggle('bx bx-x');
-}
-
-changeIcon = (icon) => icon.classList.toggle('bx bx-x');
+let changeIcon = (icon) => icon.classList.toggle('bx-x');
 </script>
 
 </html>

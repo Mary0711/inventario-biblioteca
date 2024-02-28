@@ -230,8 +230,8 @@ main {
   width: 230px;
   padding: 1rem;
   text-align: center;
-  background-color: #ffb300;
   margin-bottom: 1rem;
+  border: none;
 }
 
 .card-header {
