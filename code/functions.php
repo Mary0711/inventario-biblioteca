@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include("db.php");
 class functions extends DB
 {
@@ -63,7 +63,7 @@ class functions extends DB
      * 
      * @param string $email
      * @param string $pwd
-     * @return none
+     * @return bool
      */
     public function create_user($username, $email, $pwd, $role)
     {
@@ -71,12 +71,10 @@ class functions extends DB
         $sql = 'INSERT INTO users (username, email, password, role) VALUES (?,?,?,?);';
         $result = $this->run_stmt_query($sql, "ssss", $username, $email, $hashedPwd, $role);
         if (!$result) {
-            header("Location: ?error=statementFailed");
-            exit();
+            return false;
         }
 
-        header("Location: ?error=none"); //1
-        exit();
+        return true;
     }
 
     /**
@@ -102,17 +100,11 @@ class functions extends DB
             exit();
         }
 
-        //Toma la contraseña del usuario y la verifica
-        $pwdhashed = $userExist["password"];
-        $checkPwd = password_verify($pwd, $pwdhashed);
-
         /**
          * Si la contraseña es correcta lo envia al inventario
          * De lo contrario lo regresa al index
          */
-        if ($pwd == $pwdhashed) {
-            session_start();
-
+        if (password_verify($pwd, $userExist['password'])) {
             $_SESSION['user'] = new user($userExist['user_id'], $userExist['username'], $userExist['email']);
 
             header("Location: ../pages/inventario.php");

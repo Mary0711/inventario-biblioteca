@@ -28,23 +28,41 @@
             </div>
             <hr>
 
+
+
             <div class="card-body">
-                <h6 class="card-title">Ingrese las credenciales para entrar</h6>
-                <form action="code/login.php" method="post">
+                <?php
+                if (isset($_GET['register'])) {
+                    print '
+                <h6 class="card-title">Rellene los campos para registrarse</h6>
+                <form action="code/user.php?register" method="post">
+                    <label>Nombre</label><br>
+                    <input type="text" name="username" class="card-text"><br>
+
                     <label>Email</label><br>
                     <input type="email" class="card-text" name="email" placeholder="...@upr.edu"></input><br>
+
                     <label>Contraseña</label><br>
                     <input type="password" class="card-text" name="pwd" placeholder="Contraseña"></input><br>
-                    <button class="btn" type="submit" name="submit">Entrar</button>
-                </form>
 
-                <?php
-                if (isset($_GET["error"])) {
-                    if ($_GET["error"] == "emptyinput") {
-                        echo "<p> Ingrese todas sus credenciales? </p>";
-                    } else if ($_GET["error"] ==  "wronglogin") {
-                        echo "<p> Informacion incorrecta. </p>";
-                    }
+                    <button class="btn" type="submit" name="submit">Registrarse</button>
+                    <button class="btn" type="button"><a href="?login">Ingresar</a></button>
+                </form>
+                ';
+                } else {
+                    print '
+                <h6 class="card-title">Ingrese las credenciales para entrar</h6>
+                <form action="code/user.php?login" method="post">
+                    <label>Email</label><br>
+                    <input type="email" class="card-text" name="email" placeholder="...@upr.edu"></input><br>
+
+                    <label>Contraseña</label><br>
+                    <input type="password" class="card-text" name="pwd" placeholder="Contraseña"></input><br>
+
+                    <button class="btn" type="submit" name="submit">Ingresar</button>
+                    <button class="btn" type="button"><a href="?register">Registrarse</a></button>
+                </form>
+                ';
                 }
                 ?>
             </div>
