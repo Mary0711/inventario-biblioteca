@@ -59,7 +59,6 @@
                     <i class="bx bx-log-out"></i>
                     <span class="nav-item">Log Out </span>
                 </a>
-                <!--  <span class="tooltip">Log Out</span> -->
             </li>
         </ul>
     </div>
@@ -83,36 +82,59 @@
         <div class="summary container">
             <h5>Resumen</h5>
             <div class="cards">
-                <div class="card">
-                    <!--     <a href="#"> </a> -->
-                    <div class="card-header">
-                        <i class='bx bxs-category-alt'> </i>
-                        <h6>Categoria</h6>
-                    </div>
-                    <h4>1,234</h4>
 
-                </div>
-                <div class=" card">
-                    <div class="card-header">
-                        <i class='bx bxs-category-alt'> </i>
-                        <h6>Categoria</h6>
+                <div class="category">
+                    <div class="icon">
+                        <i class="bx bx-user" aria-hidden="true"></i><br>
+                        <h5>
+                            Categoria
+                        </h5>
+                        <h6>123</h6>
                     </div>
-                    <p>1,234</p>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <i class='bx bxs-category-alt'> </i>
-                        <h6>Categoria</h6>
+                    <div class="details">
+                        <a href="#">Mas Detalles</a>
                     </div>
-                    <p>1,234</p>
                 </div>
-                <div class="card">
-                    <div class="card-header">
-                        <i class='bx bxs-category-alt'> </i>
-                        <h6>Categoria</h6>
+                <div class="category" target="green">
+                    <div class="icon">
+                        <i class="bx bx-user" aria-hidden="true"></i><br>
+                        <h5>
+                            Categoria
+                        </h5>
+                        <h6>123</h6>
                     </div>
-                    <p>1,234</p>
+                    <div class="details">
+                        <a href="#">Mas Detalles</a>
+                    </div>
                 </div>
+                <div class="category" target="yellow">
+                    <div class="icon">
+                        <i class="bx bx-user" aria-hidden="true"></i><br>
+                        <h5>
+                            Categoria
+                        </h5>
+                        <h6>123</h6>
+                    </div>
+                    <div class="details">
+                        <a href="#">Mas Detalles</a>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="icon">
+                        <i class="bx bx-user" aria-hidden="true"></i><br>
+                        <h5>
+                            Categoria
+                        </h5>
+                        <h6>123</h6>
+                    </div>
+                    <div class="details">
+                        <a href="#">Mas Detalles</a>
+                    </div>
+                </div>
+
+
+
+
             </div>
 
         </div>
