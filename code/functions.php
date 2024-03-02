@@ -67,14 +67,15 @@ class functions extends DB
      */
     public function create_user($username, $email, $pwd, $role)
     {
-        $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
-        $sql = 'INSERT INTO users (username, email, password, role) VALUES (?,?,?,?);';
-        $result = $this->run_stmt_query($sql, "ssss", $username, $email, $hashedPwd, $role);
-        if (!$result) {
+        try {
+            $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
+            $sql = 'INSERT INTO users (username, email, password, role) VALUES (?,?,?,?);';
+            $this->run_stmt_query($sql, "ssss", $username, $email, $hashedPwd, $role);
+
+            return true;
+        } catch (Exception $e) {
             return false;
         }
-
-        return true;
     }
 
     /**
