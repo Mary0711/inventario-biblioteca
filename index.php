@@ -1,10 +1,3 @@
-<?php
-//session_start(); //??? 
-
-
-?>
-
-
 <!DOCTYPE html>
 <html>
 
@@ -28,19 +21,17 @@
             </div>
             <hr>
 
-
-
             <div class="card-body">
                 <?php
                 if (isset($_GET['register'])) {
                     print '
                 <h6 class="card-title">Rellene los campos para registrarse</h6>
-                <form action="code/user.php?register" method="post">
+                <form action="code/ingres.php?register" method="post">
                     <label>Nombre</label><br>
-                    <input type="text" name="username" class="card-text"><br>
+                    <input type="text" name="username" class="card-text" placeholder="Nombre Apellidos"><br>
 
                     <label>Email</label><br>
-                    <input type="email" class="card-text" name="email" placeholder="...@upr.edu"></input><br>
+                    <input type="email" class="card-text" name="email" placeholder="ejemplo@upr.edu"></input><br>
 
                     <label>Contraseña</label><br>
                     <input type="password" class="card-text" name="pwd" placeholder="Contraseña"></input><br>
@@ -52,9 +43,9 @@
                 } else {
                     print '
                 <h6 class="card-title">Ingrese las credenciales para entrar</h6>
-                <form action="code/user.php?login" method="post">
+                <form action="code/ingres.php?login" method="post">
                     <label>Email</label><br>
-                    <input type="email" class="card-text" name="email" placeholder="...@upr.edu"></input><br>
+                    <input type="email" class="card-text" name="email" placeholder="ejemplo@upr.edu"></input><br>
 
                     <label>Contraseña</label><br>
                     <input type="password" class="card-text" name="pwd" placeholder="Contraseña"></input><br>

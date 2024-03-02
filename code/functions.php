@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("db.php");
+include("user.php");
 class functions extends DB
 {
     /**
@@ -106,7 +106,11 @@ class functions extends DB
          * De lo contrario lo regresa al index
          */
         if (password_verify($pwd, $userExist['password'])) {
-            $_SESSION['user'] = new user($userExist['user_id'], $userExist['username'], $userExist['email']);
+            if ($userExist['role'] == 'user') {
+                $_SESSION['user'] = new user($userExist['user_id'], $userExist['username'], $userExist['email'], $userExist['role']);
+            } else if ($userExist['role'] == 'admin') {
+                $_SESSION['user'] = new admin($userExist['user_id'], $userExist['username'], $userExist['email'], $userExist['role']);
+            }
 
             header("Location: ../pages/inventario.php");
             exit();
@@ -114,19 +118,5 @@ class functions extends DB
             header("Location: ../?error=password");
             exit();
         }
-    }
-}
-
-class user extends DB
-{
-    private $username;
-    private $email;
-    private $user_id;
-
-    function __construct($user_id, $username, $email)
-    {
-        $this->user_id = $user_id;
-        $this->username = $username;
-        $this->email = $email;
     }
 }

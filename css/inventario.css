@@ -82,6 +82,8 @@
   color: var(--blanco);
   opacity: 1;
   margin-left: 0.8rem;
+  line-height: 20px;
+  width: 75%;
 }
 
 .bold {
@@ -136,11 +138,13 @@
 
 .sidebar.active ul {
   padding: 0;
+  margin-top: 0;
 }
 
 .sidebar ul {
   padding: 0;
   margin-left: 4%;
+  margin-top: 50px;
 }
 /*TODO
 

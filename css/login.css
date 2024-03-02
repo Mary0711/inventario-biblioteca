@@ -43,7 +43,8 @@ body::before {
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 #0000005e;
   color: black;
-  height: 450px;
+  min-height: 450px;
+  height: fit-content;
   width: 450px;
   margin-right: 30px;
 }
@@ -51,6 +52,7 @@ body::before {
 .card-body {
   text-align: left;
   margin-left: 50px;
+  height: fit-content;
 }
 
 .card-body input {
@@ -83,9 +85,13 @@ body::before {
   background-color: #46443d;
   margin-top: 20px;
   width: 85%;
-  margin: 30px auto;
   margin-left: 5px;
   color: whitesmoke;
+}
+
+.card-body .btn a {
+  color: whitesmoke;
+  text-decoration: none;
 }
 
 .card-body .btn:hover {

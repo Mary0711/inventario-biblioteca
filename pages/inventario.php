@@ -1,3 +1,12 @@
+<?php
+include "../code/user.php";
+session_start();
+
+if (!isset($_SESSION['user'])) {
+    header("Location: ../");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -7,8 +16,7 @@
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/inventario.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 
@@ -23,9 +31,12 @@
         <div class="user">
             <img src="../images/userdefault.png" alt="user image" class="user-img">
             <div>
-                <p class="bold">Nombre Apellido</p>
-                <p>Admin / Viewer</p>
-
+                <?php
+                print "
+                <p class='bold'>" . $_SESSION['user']->get_username() . "</p>
+                <p>Role: " . $_SESSION['user']->get_role() . "</p>
+                ";
+                ?>
             </div>
         </div>
         <ul>
@@ -48,14 +59,26 @@
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="bx bxs-user"></i>
-                    <span class="nav-item">Users</span>
-                </a>
-
+                <?php
+                if ($_SESSION['user']->get_role() == "user") {
+                    print '
+                    <a href="#">
+                        <i class="bx bxs-user"></i>
+                        <span class="nav-item">Account</span>
+                    </a>
+                    ';
+                } else {
+                    print '
+                    <a href="#">
+                        <i class="bx bxs-user"></i>
+                        <span class="nav-item">Users</span>
+                    </a>
+                    ';
+                }
+                ?>
             </li>
             <li>
-                <a href="#">
+                <a href="../code/ingres.php?logout">
                     <i class="bx bx-log-out"></i>
                     <span class="nav-item">Log Out </span>
                 </a>
@@ -147,13 +170,13 @@
 </body>
 
 <script>
-let btn = document.querySelector('#btn');
-let sidebar = document.querySelector('.sidebar');
-btn.onclick = function() {
-    sidebar.classList.toggle('active');
-};
+    let btn = document.querySelector('#btn');
+    let sidebar = document.querySelector('.sidebar');
+    btn.onclick = function() {
+        sidebar.classList.toggle('active');
+    };
 
-let changeIcon = (icon) => icon.classList.toggle('bx-x');
+    let changeIcon = (icon) => icon.classList.toggle('bx-x');
 </script>
 
 </html>

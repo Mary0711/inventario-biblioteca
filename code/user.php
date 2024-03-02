@@ -1,54 +1,32 @@
 <?php
-include "functions.php";
+include("db.php");
 
-$functions = new functions();
+class user extends DB
+{
+    private $username;
+    private $email;
+    private $user_id;
+    private $role;
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    if (isset($_GET['register'])) {
-        $username;
-        $email;
-        $pwd;
+    function __construct($user_id, $username, $email, $role)
+    {
+        $this->user_id = $user_id;
+        $this->username = $username;
+        $this->email = $email;
+        $this->role = $role;
+    }
 
-        if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pwd'])) {
-            $username = $_POST['username'];
-            $email = $_POST['email'];
-            $pwd = $_POST['pwd'];
-        }
+    public function get_username()
+    {
+        return $this->username;
+    }
 
-
-        if ($functions->check_input($username, $email, $pwd)) {
-            header("Location: ../?register&error=input");
-            exit();
-        }
-
-        if ($functions->check_user($email) !== false) {
-            header("Location: ../?register&error=user");
-            exit();
-        }
-
-        if ($functions->create_user($username, $email, $pwd, "user")) {
-            $functions->login_user($email, $pwd);
-            exit();
-        } else {
-            header("Location: ../?register&error=create");
-            exit();
-        }
-    } else if (isset($_GET['login'])) {
-        $email;
-        $pwd;
-
-        if (isset($_POST['email']) && isset($_POST['pwd'])) {
-            $email = $_POST['email'];
-            $pwd = $_POST['pwd'];
-        }
-
-        if ($functions->check_input($email, $pwd) !== false) {
-            header("Location: ../?error=input");
-            exit();
-        }
-
-        $functions->login_user($email, $pwd);
+    public function get_role()
+    {
+        return $this->role;
     }
 }
 
-header("Location: ../");
+class admin extends user
+{
+}
