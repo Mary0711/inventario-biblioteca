@@ -2,6 +2,9 @@
   --amarillo: #ffb300;
   --gris: #363333;
   --blanco: #f1eaea;
+  --platinum: #e4e4e4;
+  --blue: #266695; /*lazuli*/
+  --dark-yellow: #dba11c;
 }
 
 * {
@@ -11,7 +14,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/*SIDEBAR*/
+/*****SIDEBAR*****/
 .user-img {
   width: 52px;
   border-radius: 100%;
@@ -22,7 +25,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 170vh;
   width: 80px;
   background-color: var(--gris);
   padding: 0.4rem; /*0.8rem*/
@@ -146,20 +149,18 @@
   margin-left: 4%;
   margin-top: 50px;
 }
-/*TODO
 
-bajar los iconos para poder tocar la barra de menu. el top del menu es correcto no borrar*/
-/*MAIN*/
+/*****MAIN*****/
 
 main {
   position: relative;
-  min-height: 100vh;
+  min-height: 160vh;
   top: 0;
   left: 80px;
   transition: all 0.5s ease;
   width: calc(100% - 80px);
   padding: 1rem;
-  background-color: whitesmoke;
+  background-color: var(--platinum);
 }
 
 .container {
@@ -169,11 +170,18 @@ main {
   padding: 0.8rem;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .container h3,
-.summary h5 {
+.summary h5,
+.recents h5 {
   margin-left: 10px;
+}
+
+.summary,
+.recents {
+  display: block;
 }
 
 .user-info {
@@ -196,11 +204,6 @@ main {
   border: 1px solid var(--amarillo);
 }
 
-.summary {
-  margin-top: 15px;
-  display: block;
-}
-
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -209,8 +212,8 @@ main {
   margin-top: 35px;
 }
 .category {
-  flex: 0 0 240px;
-  background-color: #073d73;
+  flex: 0 0 230px;
+  background-color: var(--gris);
   color: #fff;
   text-align: center;
   border-radius: 5px;
@@ -224,8 +227,7 @@ main {
   border-radius: 50%;
   margin-top: -25px;
   margin-bottom: 10px;
-  /*margin-left: 39%;*/
-  background-color: #34495e;
+  background-color: var(--gris);
 }
 .icon h5 {
   margin: 0px;
@@ -238,16 +240,15 @@ main {
 }
 
 .icon {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .details {
-  background-color: #2f425400;
   padding: 5px 0px;
   font-style: italic;
 }
 .category .details:hover {
-  background-color: #a6acb4; /*un color general mas claro*/
+  background-color: #25262766;
   cursor: pointer;
   transition: all 300ms ease;
 }
@@ -259,11 +260,25 @@ main {
 .details a:hover {
   color: var(--amarillo);
 }
-
+/*
 .category[target="yellow"] {
   background-color: #ffb300;
 }
 
 .category[target="green"] {
-  background-color: lightgreen;
+  background-color: rgb(123, 182, 123);
+}
+*/
+/***** recents *****/
+.recents {
+  height: max-content;
+}
+.table {
+  margin-top: 15px;
+  width: 100%;
+}
+
+thead {
+  background-color: var(--gris);
+  color: var(--blanco);
 }

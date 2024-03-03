@@ -28,12 +28,10 @@ if (!isset($_SESSION['user'])) {
 <body>
     <?php include 'sidebar.php'; ?>
 
-
-
     <main class="main-content">
         <div class="container">
             <div class="title">
-                <h3>Dashboard</h3>
+                <h3>Busqueda</h3>
             </div>
 
             <!-- <div class="user-info">
