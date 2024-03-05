@@ -123,6 +123,11 @@
   color: var(--amarillo);
 }
 
+.sidebar ul li a.active {
+  background-color: var(--blanco);
+  color: var(--amarillo);
+}
+
 .sidebar ul li a i {
   min-width: 50px;
   text-align: center;

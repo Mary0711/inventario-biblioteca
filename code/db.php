@@ -40,4 +40,9 @@ class DB
         mysqli_stmt_execute($stm);
         return mysqli_stmt_get_result($stm);
     }
+
+    public function run_query($query)
+    {
+        return mysqli_query($this->conn, $query);
+    }
 }

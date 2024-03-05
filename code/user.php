@@ -29,4 +29,28 @@ class user extends DB
 
 class admin extends user
 {
+    public function get_allUsers()
+    {
+        $query = "SELECT * FROM users";
+
+        $this->start_connection();
+        $result = $this->run_query($query);
+
+        $users = array();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if ($row['status'] == 1) {
+                    $row['status'] = "active";
+                } else {
+                    $row['status'] = "inactive";
+                }
+                array_push($users, $row);
+            }
+
+            return $users;
+        } else {
+            return false;
+        }
+    }
 }

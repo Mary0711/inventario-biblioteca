@@ -5,51 +5,55 @@
     <div class="user">
         <img src="../images/userdefault.png" alt="user image" class="user-img">
         <div>
-            <?php /*
-                print "
+            <?php
+            print "
                 <p class='bold'>" . $_SESSION['user']->get_username() . "</p>
                 <p>Role: " . $_SESSION['user']->get_role() . "</p>
-                ";*/
-                ?>
+                ";
+            ?>
         </div>
     </div>
     <ul>
         <li>
-            <a href="inventario.php">
+            <a href="inventario.php?dash" <?php if (isset($_GET['dash'])) print "class='active'" ?>>
                 <i class="bx bxs-dashboard"></i>
                 <span class="nav-item">Dashboard</span>
             </a>
         </li>
         <li>
-            <a href="search.php">
+            <a href="search.php?search" <?php if (isset($_GET['search'])) print "class='active'" ?>>
                 <i class="bx bx-search-alt"></i>
                 <span class="nav-item">Search</span>
             </a>
         </li>
         <li>
             <a href="#">
-                <i class="bx bxs-report"></i>
+                <i class="bx bxs-report" <?php if (isset($_GET['report'])) print "class='active'" ?>></i>
                 <span class="nav-item">Reports</span>
             </a>
         </li>
         <li>
             <?php
-              /*  if ($_SESSION['user']->get_role() == "user") {*/
-                    print '
-                    <a href="#">
+            if ($_SESSION['user']->get_role() == "user") {
+                print '
+                    <a href="#"';
+                if (isset($_GET['account'])) print "class='active'";
+                print '>
                         <i class="bx bxs-user"></i>
-                        <span class="nav-item">Account</span>
+                        <span class="nav-item">Cuenta</span>
                     </a>
                     ';
-             /*   } else {*/
-                    print '
-                    <a href="#">
+            } else {
+                print '
+                    <a href="users.php?users"';
+                if (isset($_GET['users'])) print "class='active'";
+                print '>
                         <i class="bx bxs-user"></i>
-                        <span class="nav-item">Users</span>
+                        <span class="nav-item">Usuarios</span>
                     </a>
                     ';
-               /* }*/
-                ?>
+            }
+            ?>
         </li>
         <li>
             <a href="../code/ingres.php?logout">
