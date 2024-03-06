@@ -25,7 +25,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 170vh;
+  min-height: 240vh;
   width: 80px;
   background-color: var(--gris);
   padding: 0.4rem; /*0.8rem*/
@@ -159,7 +159,7 @@
 
 main {
   position: relative;
-  min-height: 160vh;
+  min-height: 240vh;
   top: 0;
   left: 80px;
   transition: all 0.5s ease;
@@ -179,34 +179,14 @@ main {
 }
 
 .container h3,
-.summary h5,
-.recents h5 {
+.container h5,
+.container h7 {
   margin-left: 10px;
 }
 
 .summary,
 .recents {
   display: block;
-}
-
-.user-info {
-  display: flex;
-  align-items: center;
-}
-
-.user-info div {
-  text-align: left;
-  font-style: italic;
-  font-weight: 600;
-  margin: auto auto;
-  margin-top: 10px;
-  margin-right: 10px;
-}
-
-.user-info img {
-  width: 52px;
-  border-radius: 100%;
-  border: 1px solid var(--amarillo);
 }
 
 .cards {

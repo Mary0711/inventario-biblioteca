@@ -17,6 +17,7 @@ if (!isset($_SESSION['user'])) {
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/inventario.css">
+    <link rel="stylesheet" href="../css/search.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -34,76 +35,30 @@ if (!isset($_SESSION['user'])) {
                 <h3>Busqueda</h3>
             </div>
 
-            <!-- <div class="user-info">
-                <div>
-                    <p>Nombre Apellido Apellido</p>
-                </div>
-                <img src="../images/userdefault.png" />
-            </div>
-        -->
+            <form>
+                <div class="search">
+                    <input class="search-input" type="search" placeholder="Buscar">
+                    <i class="search-icon bx bx-search-alt"></i>
 
+                </div>
+            </form>
         </div>
-        <div class="summary container">
-            <h5>Resumen</h5>
-            <div class="cards">
 
-                <div class="category">
-                    <div class="icon">
-                        <i class="bx bx-user" aria-hidden="true"></i><br>
-                        <h6>
-                            Categoria
-                        </h6>
-                        <h7>123</h7>
-                    </div>
-                    <div class="details">
-                        <a href="#">Mas Detalles</a>
-                    </div>
-                </div>
-                <div class="category" target="green">
-                    <div class="icon">
-                        <i class="bx bx-user" aria-hidden="true"></i><br>
-                        <h6>
-                            Categoria
-                        </h6>
-                        <h7>123</h7>
-                    </div>
-                    <div class="details">
-                        <a href="#">Mas Detalles</a>
-                    </div>
-                </div>
-                <div class="category" target="yellow">
-                    <div class="icon">
-                        <i class="bx bx-user" aria-hidden="true"></i><br>
-                        <h6>
-                            Categoria
-                        </h6>
-                        <h7>123</h7>
-                    </div>
-                    <div class="details">
-                        <a href="#">Mas Detalles</a>
-                    </div>
-                </div>
-                <div class="category">
-                    <div class="icon">
-                        <i class="bx bx-user" aria-hidden="true"></i><br>
-                        <h6>
-                            Categoria
-                        </h6>
-                        <h7>123</h7>
-                    </div>
-                    <div class="details">
-                        <a href="#">Mas Detalles</a>
-                    </div>
-                </div>
+        <div class="filter container">
+            <h7> Llene los siguientes campos para una busqueda especifica:</h7>
 
-
-
-
-            </div>
-
+            <form>
+                <label>Seleccionar Categoria</label>
+                <input type="text" name="" id="">
+                <label>Seleccionar Rango de Fecha</label>
+                <input type="text" name="" id="">
+                <label>Seleccionar Estado</label>
+                <input type="text" name="" id="">
+            </form>
         </div>
+
         <div class="recents container">
-            <h5>Informacion Reciente</h5>
+            <h5></h5>
             <table class="table">
                 <!--table-hove-->
                 <thead>
