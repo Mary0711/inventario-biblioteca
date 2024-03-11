@@ -72,7 +72,13 @@ if (!isset($_SESSION['user'])) {
                                 <th>" . $user['email'] . "</th>
                                 <th>" . $user['status'] . "</th>
                                 <th>" . $user['role'] . "</th>
-                                <th><i class='bx bxs-edit'></i></th>
+                                <th>
+                                    <form action='edit.php?users' method='post'>
+                                        <input type='hidden' value=" . $user['user_id'] . " name='id'>
+                                        <input type='hidden' value='user' name='action'>
+                                        <button><i class='bx bxs-edit'></i></button>
+                                    </form>
+                                </th>
                             </tr>
                             ";
                         }

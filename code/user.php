@@ -53,4 +53,18 @@ class admin extends user
             return false;
         }
     }
+
+    public function get_user($id)
+    {
+        $query = "SELECT * FROM users WHERE user_id = " . $id . "";
+
+        $this->start_connection();
+        $result = $this->run_query($query);
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        } else {
+            return false;
+        }
+    }
 }
