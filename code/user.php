@@ -67,4 +67,10 @@ class admin extends user
             return false;
         }
     }
+
+    public function update_user($user)
+    {
+        $query = "UPDATE users SET username = ?, email = ?, status = ?, role = ?";
+        $this->run_stmt_query($query, "ssis", $user['username'], $user['email'], $user['status'], $user['role']);
+    }
 }
