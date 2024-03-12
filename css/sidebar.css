@@ -1,0 +1,139 @@
+.user-img {
+  width: 52px;
+  border-radius: 100%;
+  border: 1px solid var(--blanco);
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 240vh;
+  width: 80px;
+  background-color: var(--gris);
+  padding: 0.4rem; /*0.8rem*/
+  transition: all 0.5s ease;
+}
+
+.sidebar.active ~ .main-content {
+  left: 250px;
+  width: calc(100% - 250px);
+}
+
+.sidebar.active {
+  width: 250px;
+}
+
+.sidebar #btn {
+  position: absolute;
+  color: var(--blanco);
+  /*top: 1rem;*/
+  left: 50%;
+  font-size: 1.5rem;
+  line-height: 50px;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.sidebar.active #btn {
+  left: 90%;
+}
+
+.sidebar.active .top .logo {
+  opacity: 1;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+  margin: 0.5rem;
+  margin-top: 3.5rem;
+  display: none;
+}
+
+.sidebar.active .user {
+  margin-top: 0;
+  display: flex;
+  margin-top: 0.3rem;
+}
+
+.sidebar.active p {
+  line-height: 10px;
+  margin-top: 10px;
+}
+
+.sidebar.active .user p {
+  color: var(--blanco);
+  opacity: 1;
+  margin-left: 0.8rem;
+  line-height: 20px;
+  width: 75%;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.sidebar p {
+  display: none;
+}
+
+.sidebar.active p {
+  display: block;
+}
+
+.sidebar ul li {
+  position: relative;
+  list-style-type: none;
+  height: 50px;
+  width: 90%;
+  margin: 0.8rem auto;
+  line-height: 50px;
+}
+
+.sidebar ul li a {
+  color: var(--blanco);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 0.8rem;
+}
+
+.sidebar ul li a:hover {
+  background-color: var(--blanco);
+  color: var(--amarillo);
+}
+
+.sidebar ul li a.active {
+  background-color: var(--blanco);
+  color: var(--amarillo);
+}
+
+.sidebar ul li a i {
+  min-width: 50px;
+  text-align: center;
+  height: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+}
+
+.sidebar .nav-item {
+  display: none;
+}
+
+.sidebar.active .nav-item {
+  display: block;
+}
+
+.sidebar.active ul {
+  padding: 0;
+  margin-top: 0;
+}
+
+.sidebar ul {
+  padding: 0;
+  margin-left: 4%;
+  margin-top: 50px;
+}
