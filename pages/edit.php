@@ -16,7 +16,7 @@ if (!isset($_SESSION['user'])) {
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/inventario.css">
+    <link rel="stylesheet" href="../css/edit.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -54,36 +54,58 @@ if (!isset($_SESSION['user'])) {
 
                 print '
                 <div class="recents container">
-                    <h5>Usuario: ' . $user['username'] . '</h5>
-                    <form>
-                        <label>Username</label>
-                        <input type="text" value=' . $user['username'] . ' name="username"><br>
+                    <div class="category">
+                        <div class="icon">
+                            <i class="bx bx-user" aria-hidden="true"></i><br>
+                            <h6>User</h6>
+                            <h7>' . $user['username'] . '</h7>
+                        </div>
+                    </div>
+                    <form action="edit.php" method="post">
 
-                        <label>Email</label>
-                        <input type="email" value=' . $user['email'] . ' name="email"><br>
+                    <div class="category">
+                        <div class="icon">
+                            <h6>Username</h6>
+                            <input type="text" value="' . $user['username'] . '" name="username">
+                        </div>
+                    </div>
 
-                        <label>Status</label><br>';
+                    <div class="category">
+                        <div class="icon">
+                            <h6>Email</h6>
+                            <input type="email" value=' . $user['email'] . ' name="email">
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <div class="icon">
+                            <h6>Status</h6>';
 
                 if ($user['status'] == 1) {
                     print '
                     <label>Active</label>
-                    <input type="radio" checked name="status" value="active"><br>
+                    <input type="radio" checked name="status" value="1"><br>
 
                     <label>Inactive</label>
-                    <input type="radio" name="status" value="inactive"><br>
+                    <input type="radio" name="status" value="0"><br>
                     ';
                 } else {
                     print '
                     <label>Active</label>
-                    <input type="radio" name="status" value="active"><br>
+                    <input type="radio" name="status" value="1"><br>
 
                     <label>Inactive</label>
-                    <input type="radio" checked name="status" value="inactive"><br>
+                    <input type="radio" checked name="status" value="0"><br>
                     ';
                 }
 
                 print '
-                <label>Role</label>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <div class="icon">
+                        <h6>Role</h6>
                 <select>
                 ';
 
@@ -100,12 +122,35 @@ if (!isset($_SESSION['user'])) {
                 }
 
                 print '</select>
+                    </div>
+                </div>
+
+                <div class="break"></div>
+                <div class="buttons">
+                    <button type="submit">Save</button>
+                    <button type="button"><a href="users.php?users">Cancel</a></button>
+                </div>
+                <input type="hidden" name="update" value="user">
                     </form>
                 </div>
                 ';
+            } else if (isset($_POST['update'])) {
+                if ($_POST['update'] == "user") {
+                    $user = array(
+                        "username" => $_POST['username'],
+                        "email" => $_POST['email'],
+                        "status" => $_POST['status'],
+                        "role" => $_POST['role']
+                    );
+                    $_SESSION['user']->update_user($user);
+
+                    header("Location: users.php?users");
+                }
             }
         }
         ?>
+
+
     </main>
 
 </body>
