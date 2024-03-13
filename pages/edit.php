@@ -106,7 +106,7 @@ if (!isset($_SESSION['user'])) {
                 <div class="category">
                     <div class="icon">
                         <h6>Role</h6>
-                <select>
+                <select name="role">
                 ';
 
                 if ($user['role'] == 'admin') {

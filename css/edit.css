@@ -1,5 +1,6 @@
 @import "main.css";
 @import "sidebar.css";
+@import "category_box.css";
 
 form {
   display: flex;
@@ -19,37 +20,7 @@ select {
 }
 
 .category {
-  flex: 0 0 230px;
-  background-color: var(--gris);
-  color: #fff;
-  text-align: center;
-  border-radius: 5px;
-  margin-bottom: 2rem;
-  flex-basis: 220px;
   padding: 5px;
-}
-
-.icon i {
-  font-size: 30px;
-  padding: 10px;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  margin-top: -25px;
-  margin-bottom: 10px;
-  background-color: var(--gris);
-}
-.icon h5 {
-  margin: 0px;
-  font-size: 20px;
-  padding-bottom: 10px;
-}
-
-.icon h6 {
-  font-size: 18px;
-}
-
-.icon {
-  margin-bottom: 10px;
 }
 
 .recents {
