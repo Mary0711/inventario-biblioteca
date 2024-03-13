@@ -17,7 +17,8 @@ if (!isset($_SESSION['user'])) {
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/inventario.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 
@@ -147,6 +148,7 @@ if (!isset($_SESSION['user'])) {
                     </tr>
                 </tbody>
                 <tfoot></tfoot>
+
             </table>
         </div>
 
@@ -250,13 +252,13 @@ if (!isset($_SESSION['user'])) {
 
 </body>
 <script>
-    let btn = document.querySelector('#btn');
-    let sidebar = document.querySelector('.sidebar');
-    btn.onclick = function() {
-        sidebar.classList.toggle('active');
-    };
+let btn = document.querySelector('#btn');
+let sidebar = document.querySelector('.sidebar');
+btn.onclick = function() {
+    sidebar.classList.toggle('active');
+};
 
-    let changeIcon = (icon) => icon.classList.toggle('bx-x');
+let changeIcon = (icon) => icon.classList.toggle('bx-x');
 </script>
 
 </html>

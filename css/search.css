@@ -4,7 +4,8 @@
   --blanco: #f1eaea;
   --platinum: #e4e4e4;
   --blue: #266695; /*lazuli*/
-  --dark-yellow: #dba21c77;
+  --dark-yellow: #dba21c;
+  --dark-yellow-low: #dba21c90;
 }
 
 .search {
@@ -44,12 +45,118 @@
   font-size: 20px;
 }
 
-.filter .contaienr {
-  justify-content: inherit;
+.filter .form {
+  display: flex;
+  text-align: start;
+  gap: 3rem;
+  padding: 20px;
+  margin-left: 10px;
+  font: 12px;
+}
+
+.filter .form input[type="text"] {
+  border-radius: 8px;
+  transition: background 0.25s;
+  background-color: #ededed;
+  margin-right: 1rem;
+  border: none;
+  outline: none;
+  margin: 3px;
+  width: 50%;
+  padding: 2px;
+  padding-left: 10px;
+  margin-left: 6px;
+}
+
+.filter .form input:focus-within {
+  background: var(--dark-yellow-low);
+  /*box-shadow: 0 0 5px #f3ae0e;*/
+}
+
+.radbtn {
+  display: flex;
+  text-align: end;
+  padding: 2px;
+}
+
+.radbtn label:first-of-type {
+  text-align: end;
+  width: 121px;
+}
+
+.radbtn input {
+  margin-right: 4px;
+  margin-left: 20px;
+  /* accent-color: var(--amarillo);*/
+}
+
+.categorias {
+  display: flex;
+  text-align: start;
+  padding: 2px;
   flex-direction: row;
+  gap: 3rem;
+}
+
+.categorias input {
+  accent-color: var(--dark-yellow);
 }
 
 .filter form {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+}
+.filter form button {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: var(--gris);
+  color: black;
+  width: 80px;
+  height: 30px;
+  margin: auto auto;
+  background-color: var(--dark-yellow);
+  /* display: flex;*/
+}
+
+.filter form button:hover {
+  color: black;
+  font-weight: 600;
+}
+
+.form {
+  width: 100%;
+}
+
+.buttons {
+  margin: auto auto;
+}
+
+.buttons button:first-of-type {
+  margin-right: 20px;
+}
+
+.pagination {
+  display: inline-block;
+  justify-content: center;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 4px 12px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.pagination a.active {
+  background-color: var(--dark-yellow);
+  color: black;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.pagination a:hover:not(.active) {
+  font-weight: 600;
+  background-color: #d8d8d8;
+  color: black;
 }
