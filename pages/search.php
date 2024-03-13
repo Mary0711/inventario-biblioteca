@@ -213,7 +213,11 @@ if (!isset($_SESSION['user'])) {
                 </tbody>
 
             </table>
+            <div class="report">
+                <button>Obtener Reporte</button>
+            </div>
             <div class="pagination">
+
                 <a href="#">&laquo;</a>
                 <a href="#">1</a>
                 <a href="#" class="active">2</a>
@@ -222,7 +226,9 @@ if (!isset($_SESSION['user'])) {
                 <a href="#">5</a>
                 <a href="#">6</a>
                 <a href="#">&raquo;</a>
+
             </div>
+
 
         </div>
 
