@@ -1,0 +1,39 @@
+@import "main.css";
+@import "sidebar.css";
+@import "category_box.css";
+
+.recents {
+  height: max-content;
+  display: block;
+}
+
+.table {
+  margin-top: 15px;
+  width: 100%;
+}
+
+thead {
+  background-color: var(--gris);
+  color: var(--blanco);
+}
+
+.container button {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: var(--gris);
+  color: #fff;
+  width: 80px;
+  height: 30px;
+}
+
+.container a {
+  color: #fff;
+
+  &:hover {
+    color: #d8d8d8;
+  }
+
+  &.active {
+    color: var(--amarillo);
+  }
+}

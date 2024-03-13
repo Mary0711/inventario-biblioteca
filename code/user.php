@@ -29,9 +29,9 @@ class user extends DB
 
 class admin extends user
 {
-    public function get_allUsers()
+    public function get_allUsers($sort = "user_id", $order = "ASC")
     {
-        $query = "SELECT * FROM users";
+        $query = "SELECT * FROM users ORDER BY " . $sort . " " . $order . "";
 
         $this->start_connection();
         $result = $this->run_query($query);
