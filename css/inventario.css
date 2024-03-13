@@ -79,3 +79,7 @@ thead {
   background-color: var(--gris);
   color: var(--blanco);
 }
+
+tbody tr:hover {
+  color: var(--dark-yellow);
+}

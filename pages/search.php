@@ -49,73 +49,77 @@ if (!isset($_SESSION['user'])) {
                 <h7> Llene los siguientes campos para una busqueda especifica:</h7>
 
                 <form>
-                    <div class="detalles">
+                    <div class="form">
+                        <div class="detalles">
 
-                        <label> Numero de Serie:</label>
-                        <input type="text" name="" id=""><br>
-                        <div class="detalles2">
-                            <div class="radbtn">
-                                <label> Estado:</label>
+                            <label> Numero de Serie:</label>
+                            <input type="text" name="" id=""><br>
+                            <div class="detalles2">
+                                <div class="radbtn">
+                                    <label> Estado:</label>
 
-                                <input type="radio" id="activo" name="status" value="activo" checked>
-                                <label for="activo">activo</label>
-                                <input type="radio" id="decomisado" name="status" value="decomisado">
-                                <label for="decomisado">decomisado</label><br>
+                                    <input type="radio" id="activo" name="status" value="activo" checked>
+                                    <label for="activo">activo</label>
+                                    <input type="radio" id="decomisado" name="status" value="decomisado">
+                                    <label for="decomisado">decomisado</label><br>
+                                </div>
+                                <div class="radbtn">
+                                    <label> Area:</label>
+
+                                    <input type="radio" id="admin" name="area" value="admin" checked>
+                                    <label for="admin">administrativa</label>
+                                    <input type="radio" id="est" name="area" value="est">
+                                    <label for="est">estudiantil</label><br>
+
+                                </div>
+                                <div class="radbtn">
+                                    <label> Piso:</label>
+
+                                    <input type="radio" id="1" name="piso" value="1" checked>
+                                    <label for="1">1</label>
+                                    <input type="radio" id="2" name="piso" value="2">
+                                    <label for="2">2</label><br>
+                                </div>
                             </div>
-                            <div class="radbtn">
-                                <label> Area:</label>
 
-                                <input type="radio" id="admin" name="area" value="admin" checked>
-                                <label for="admin">administrativa</label>
-                                <input type="radio" id="est" name="area" value="est">
-                                <label for="est">estudiantil</label><br>
-
-                            </div>
-                            <div class="radbtn">
-                                <label> Piso:</label>
-
-                                <input type="radio" id="1" name="piso" value="1" checked>
-                                <label for="1">1</label>
-                                <input type="radio" id="2" name="piso" value="2">
-                                <label for="2">2</label><br>
-                            </div>
                         </div>
+                        <label> Categorias:</label>
+                        <div class="categorias">
 
+                            <div class="check1">
+                                <input type="checkbox" id="cat1" name="cat1" value="laptop">
+                                <label for="cat1"> laptop</label><br>
+                                <input type="checkbox" id="cat1" name="cat1" value="laptop">
+                                <label for="cat1"> Monitor</label><br>
+                                <input type="checkbox" id="cat1" name="cat1" value="laptop">
+                                <label for="cat1"> escritorio</label><br>
+                                <input type="checkbox" id="cat1" name="cat1" value="laptop">
+                                <label for="cat1"> mesa</label><br>
+                                <input type="checkbox" id="cat1" name="cat1" value="laptop">
+                                <label for="cat1"> silla</label><br>
+
+                            </div>
+
+                            <div class="check2">
+                                <input type="checkbox" id="cat1" name="cat1" value="laptop">
+                                <label for="cat1"> televisores</label><br>
+                                <input type="checkbox" id="cat1" name="cat1" value="laptop">
+                                <label for="cat1"> teclados</label><br>
+                                <input type="checkbox" id="cat1" name="cat1" value="laptop">
+                                <label for="cat1"> muebles</label><br>
+                                <input type="checkbox" id="cat1" name="cat1" value="laptop">
+                                <label for="cat1"> escritorio</label><br>
+                                <input type="checkbox" id="cat1" name="cat1" value="laptop">
+                                <label for="cat1"> silla</label><br>
+                            </div>
+
+                        </div>
                     </div>
-                    <label> Categorias:</label>
-                    <div class="categorias">
 
-                        <div class="check1">
-                            <input type="checkbox" id="cat1" name="cat1" value="laptop">
-                            <label for="cat1"> laptop</label><br>
-                            <input type="checkbox" id="cat1" name="cat1" value="laptop">
-                            <label for="cat1"> Monitor</label><br>
-                            <input type="checkbox" id="cat1" name="cat1" value="laptop">
-                            <label for="cat1"> escritorio</label><br>
-                            <input type="checkbox" id="cat1" name="cat1" value="laptop">
-                            <label for="cat1"> mesa</label><br>
-                            <input type="checkbox" id="cat1" name="cat1" value="laptop">
-                            <label for="cat1"> silla</label><br>
-
-                        </div>
-
-                        <div class="check2">
-                            <input type="checkbox" id="cat1" name="cat1" value="laptop">
-                            <label for="cat1"> televisores</label><br>
-                            <input type="checkbox" id="cat1" name="cat1" value="laptop">
-                            <label for="cat1"> teclados</label><br>
-                            <input type="checkbox" id="cat1" name="cat1" value="laptop">
-                            <label for="cat1"> muebles</label><br>
-                            <input type="checkbox" id="cat1" name="cat1" value="laptop">
-                            <label for="cat1"> escritorio</label><br>
-                            <input type="checkbox" id="cat1" name="cat1" value="laptop">
-                            <label for="cat1"> silla</label><br>
-                        </div>
-
+                    <div class="buttons">
+                        <button> Buscar </button>
+                        <button> Limpiar </button>
                     </div>
-                    <div class="break"></div>
-                    <button> Buscar </button>
-                    <button> Limpiar </button>
                 </form>
             </div>
         </div>
@@ -205,9 +209,21 @@ if (!isset($_SESSION['user'])) {
                         <td>3 de marzo de 2024</td>
                     </tr>
 
+
                 </tbody>
-                <tfoot></tfoot>
+
             </table>
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#">1</a>
+                <a href="#" class="active">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">&raquo;</a>
+            </div>
+
         </div>
 
 

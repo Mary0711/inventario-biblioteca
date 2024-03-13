@@ -4,7 +4,8 @@
   --blanco: #f1eaea;
   --platinum: #e4e4e4;
   --blue: #266695; /*lazuli*/
-  --dark-yellow: #dba21c77;
+  --dark-yellow: #dba21c;
+  --dark-yellow-low: #dba21c90;
 }
 
 .search {
@@ -44,7 +45,7 @@
   font-size: 20px;
 }
 
-.filter form {
+.filter .form {
   display: flex;
   text-align: start;
   gap: 3rem;
@@ -53,7 +54,7 @@
   font: 12px;
 }
 
-.filter form input[type="text"] {
+.filter .form input[type="text"] {
   border-radius: 8px;
   transition: background 0.25s;
   background-color: #ededed;
@@ -67,8 +68,8 @@
   margin-left: 6px;
 }
 
-.filter form input:focus-within {
-  background: var(--dark-yellow);
+.filter .form input:focus-within {
+  background: var(--dark-yellow-low);
   /*box-shadow: 0 0 5px #f3ae0e;*/
 }
 
@@ -101,7 +102,61 @@
   accent-color: var(--dark-yellow);
 }
 
-.break {
-  flex-basis: 100%;
-  width: 0;
+.filter form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.filter form button {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: var(--gris);
+  color: black;
+  width: 80px;
+  height: 30px;
+  margin: auto auto;
+  background-color: var(--dark-yellow);
+  /* display: flex;*/
+}
+
+.filter form button:hover {
+  color: black;
+  font-weight: 600;
+}
+
+.form {
+  width: 100%;
+}
+
+.buttons {
+  margin: auto auto;
+}
+
+.buttons button:first-of-type {
+  margin-right: 20px;
+}
+
+.pagination {
+  display: inline-block;
+  justify-content: center;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 4px 12px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.pagination a.active {
+  background-color: var(--dark-yellow);
+  color: black;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.pagination a:hover:not(.active) {
+  font-weight: 600;
+  background-color: #d8d8d8;
+  color: black;
 }
