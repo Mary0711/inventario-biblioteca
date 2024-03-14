@@ -109,7 +109,6 @@
 .filter form button {
   border: 1px solid transparent;
   border-radius: 5px;
-  background-color: var(--gris);
   color: black;
   width: 80px;
   height: 30px;
@@ -159,4 +158,21 @@
   font-weight: 600;
   background-color: #d8d8d8;
   color: black;
+}
+
+.report button {
+  float: left;
+  margin-left: 20px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: black;
+  background-color: var(--dark-yellow);
+  padding: 5px 10px;
+  align-items: center;
+  margin-right: -50%;
+}
+
+.report button:hover {
+  color: black;
+  font-weight: 600;
 }
