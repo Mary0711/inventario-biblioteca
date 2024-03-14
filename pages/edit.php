@@ -63,6 +63,7 @@ if (!isset($_SESSION['user'])) {
                     </div>
                     <form action="edit.php" method="post">
 
+                    <input type="hidden" value=' . $user['user_id'] . ' name="user_id">
                     <div class="category">
                         <div class="icon">
                             <h6>Username</h6>
@@ -137,6 +138,7 @@ if (!isset($_SESSION['user'])) {
             } else if (isset($_POST['update'])) {
                 if ($_POST['update'] == "user") {
                     $user = array(
+                        "user_id" => $_POST['user_id'],
                         "username" => $_POST['username'],
                         "email" => $_POST['email'],
                         "status" => $_POST['status'],

@@ -50,7 +50,25 @@ if (!isset($_SESSION['user'])) {
                 <div class="icon">
                     <h6>Añadir Usuario</h6>
                 </div>
-                <button><i class='bx bx-plus-circle'></i></button>
+                <form action="create.php?users" method="post">
+                    <input type="hidden" value="user" name="action">
+                    <button><i class='bx bx-plus-circle'></i></button>
+                </form>
+            </div>
+
+            <div class="category">
+                <div class="icon">
+                    <h6>Ver Cuenta</h6>
+                </div>
+                <?php
+                print "
+                <form action='edit.php?users' method='post'>
+                    <input type='hidden' value=" . $_SESSION['user']->get_id() . " name='id'>
+                    <input type='hidden' value='user' name='action'>
+                    <button><i class='bx bxs-edit'></i></button>
+                </form>
+                ";
+                ?>
             </div>
         </div>
 

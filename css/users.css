@@ -37,3 +37,12 @@ thead {
     color: var(--amarillo);
   }
 }
+
+.container:has(.category) {
+  justify-content: center;
+}
+
+.category {
+  margin: 5px;
+  padding: 5px;
+}

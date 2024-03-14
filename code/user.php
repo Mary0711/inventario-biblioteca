@@ -21,6 +21,11 @@ class user extends DB
         return $this->username;
     }
 
+    public function get_id()
+    {
+        return $this->user_id;
+    }
+
     public function get_role()
     {
         return $this->role;
@@ -68,9 +73,34 @@ class admin extends user
         }
     }
 
+    public function check_user($email)
+    {
+        $query = "SELECT * FROM users WHERE email = '" . $email . "'";
+        $this->start_connection();
+        $result = $this->run_query($query);
+
+        if ($result->num_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function update_user($user)
     {
-        $query = "UPDATE users SET username = ?, email = ?, status = ?, role = ?";
-        $this->run_stmt_query($query, "ssis", $user['username'], $user['email'], $user['status'], $user['role']);
+        $query = "UPDATE users SET username = ?, email = ?, status = ?, role = ? WHERE user_id = ?";
+        $this->run_stmt_query($query, "ssiss", $user['username'], $user['email'], $user['status'], $user['role'], $user['user_id']);
+    }
+
+    public function create_user($user)
+    {
+        if ($this->check_user($user['email'])) {
+            return false;
+        }
+
+        $user['password'] = password_hash($user['password'], PASSWORD_DEFAULT);
+
+        $query = "INSERT INTO users(username, email, password, status, role) VALUES (?, ?, ?, ?, ?)";
+        $this->run_stmt_query($query, "sssis", $user["username"], $user['email'], $user['password'], $user['status'], $user['role']);
     }
 }
