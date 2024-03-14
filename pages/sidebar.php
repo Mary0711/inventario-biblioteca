@@ -27,7 +27,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="reportes.php?report">
                 <i class="bx bxs-report" <?php if (isset($_GET['report'])) print "class='active'" ?>></i>
                 <span class="nav-item">Reportes</span>
             </a>

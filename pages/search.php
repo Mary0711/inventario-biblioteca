@@ -135,6 +135,7 @@ if (!isset($_SESSION['user'])) {
                         <th scope="col">Categoria</th>
                         <th scope="col">Registrado por</th>
                         <th scope="col">Subido el</th>
+                        <th scope="col">Editar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -207,6 +208,15 @@ if (!isset($_SESSION['user'])) {
                         <td>Electronico</td>
                         <td>Admin Admin</td>
                         <td>3 de marzo de 2024</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form action='edit.php?users' method='post'>
+                                <input type='hidden' value=" . $user['user_id'] . " name='id'>
+                                <input type='hidden' value='user' name='action'>
+                                <button><i class='bx bxs-edit'></i></button>
+                            </form>
+                        </td>
                     </tr>
 
 
