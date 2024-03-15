@@ -31,28 +31,28 @@ if (!isset($_SESSION['user'])) {
     <main class="main-content">
         <div class="container">
             <div class="title">
-                <h3>Busqueda</h3>
+                <?php
+                if (isset($_POST['serial_num'])) {
+                    $object = $_SESSION['user']->get_object($_POST['serial_num']);
+                }
+                print '<h5>' . $object['name'] . '</h5>'
+                ?>
+                <h3>Editar Informacion</h3>
             </div>
-
-            <form>
-                <div class="search">
-                    <input class="search-input" type="search" placeholder="Buscar">
-                    <i class="search-icon bx bx-search-alt"></i>
-
-                </div>
-            </form>
         </div>
 
         <div class="container">
             <div class="filter">
-                <h7> Llene los siguientes campos para una busqueda especifica:</h7>
-
-                <form>
+                <?php
+                print '
+                <form action="editObject.php" method="post">
                     <div class="form">
                         <div class="detalles">
 
-                            <label> Numero de Serie:</label>
-                            <input type="text" name="" id=""><br>
+                            <label> Nombre:</label>
+                            <input type="hidden" name="name" value=' . $object['name'] . '><br>
+                            <label> Descripcion:</label>
+                            <input type="hidden" name="description" value=' . $object['description'] . '><br>
                             <div class="detalles2">
                                 <div class="radbtn">
                                     <label> Estado:</label>
@@ -82,7 +82,7 @@ if (!isset($_SESSION['user'])) {
                             </div>
 
                         </div>
-                        <label> Categorias:</label>
+                        <label> Categoria:</label>
                         <div class="categorias">
 
                             <div class="check1">
@@ -116,89 +116,20 @@ if (!isset($_SESSION['user'])) {
                     </div>
 
                     <div class="buttons">
-                        <button> Buscar </button>
-                        <button> Limpiar </button>
+                        <button> Guardar </button>
+                        <button> Cancelar </button>
                     </div>
-                </form>
+                </form>'
+
+                ?>
+
             </div>
+
         </div>
 
-        <div class="recents container">
-            <h5></h5>
-            <table class="table">
-                <!--table-hove-->
-                <thead>
-                    <tr>
-                        <th scope="col"># de Serie</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Area</th>
-                        <th scope="col">Piso</th>
-                        <th scope="col">Dueno</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col">Subido el</th>
-                        <th scope="col">Ver / Editar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $objects = $_SESSION['user']->get_allObjects();
-
-                    if ($objects !== false) {
-
-                        foreach ($objects as $object) {
-                            print "
-                            <tr>
-                                <th>" . $object['serial_num'] . "</th>
-                                <th>" . $object['name'] . "</th>
-                                <th>" . $object['type'] . "</th>
-                                <th>" . $object['area'] . "</th>
-                                <th>" . $object['floor'] . "</th>
-                                <th>" . $_SESSION['user']->get_user($object['owner'])['username'] . "</th>
-                                <th>" . $object['status'] . "</th>
-                                <th>" . $object['date'] . "</th>
-                                <th>
-                                    <form action='editObject.php?search' method='post' target='_blank'>
-                                        <input type='hidden' value=" . $object['serial_num'] . " name='serial_num'>
-                                        <input type='hidden' value='user' name='action'>
-                                        <button><i class='bx bxs-edit'></i></button>
-                                    </form>
-                                </th>
-                            </tr>
-                            ";
-                        }
-                    } else {
-                        print " <tr> No objects </tr>";
-                    }
 
 
 
-                    ?>
-
-
-
-
-                </tbody>
-
-            </table>
-            <div class="report">
-                <button>Obtener Reporte</button>
-            </div>
-            <div class="pagination">
-
-                <a href="#">&laquo;</a>
-                <a href="#">1</a>
-                <a href="#" class="active">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">&raquo;</a>
-
-            </div>
-
-
-        </div>
 
 
 
