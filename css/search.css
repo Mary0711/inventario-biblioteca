@@ -176,3 +176,12 @@
   color: black;
   font-weight: 600;
 }
+
+td button {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: var(--gris);
+  color: #fff;
+  width: 80px;
+  height: 30px;
+}

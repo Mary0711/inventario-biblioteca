@@ -18,8 +18,7 @@ if (!isset($_SESSION['user'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/inventario.css">
     <link rel="stylesheet" href="../css/search.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 
@@ -145,6 +144,7 @@ if (!isset($_SESSION['user'])) {
                         <td>Electronico</td>
                         <td>Admin Admin</td>
                         <td>3 de marzo de 2024</td>
+                        <td><button><i class='bx bxs-edit'></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
@@ -152,6 +152,7 @@ if (!isset($_SESSION['user'])) {
                         <td>Electronico</td>
                         <td>Admin Admin</td>
                         <td>3 de marzo de 2024</td>
+                        <td><button><i class='bx bxs-edit'></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
@@ -159,6 +160,7 @@ if (!isset($_SESSION['user'])) {
                         <td>Electronico</td>
                         <td>Admin Admin</td>
                         <td>3 de marzo de 2024</td>
+                        <td><button><i class='bx bxs-edit'></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
@@ -166,6 +168,7 @@ if (!isset($_SESSION['user'])) {
                         <td>Electronico</td>
                         <td>Admin Admin</td>
                         <td>3 de marzo de 2024</td>
+                        <td><button><i class='bx bxs-edit'></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
@@ -173,6 +176,7 @@ if (!isset($_SESSION['user'])) {
                         <td>Electronico</td>
                         <td>Admin Admin</td>
                         <td>3 de marzo de 2024</td>
+                        <td><button><i class='bx bxs-edit'></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
@@ -180,6 +184,7 @@ if (!isset($_SESSION['user'])) {
                         <td>Electronico</td>
                         <td>Admin Admin</td>
                         <td>3 de marzo de 2024</td>
+                        <td><button><i class='bx bxs-edit'></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
@@ -187,6 +192,7 @@ if (!isset($_SESSION['user'])) {
                         <td>Electronico</td>
                         <td>Admin Admin</td>
                         <td>3 de marzo de 2024</td>
+                        <td><button><i class='bx bxs-edit'></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
@@ -194,6 +200,7 @@ if (!isset($_SESSION['user'])) {
                         <td>Electronico</td>
                         <td>Admin Admin</td>
                         <td>3 de marzo de 2024</td>
+                        <td><button><i class='bx bxs-edit'></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
@@ -201,6 +208,7 @@ if (!isset($_SESSION['user'])) {
                         <td>Electronico</td>
                         <td>Admin Admin</td>
                         <td>3 de marzo de 2024</td>
+                        <td><button><i class='bx bxs-edit'></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
@@ -208,16 +216,9 @@ if (!isset($_SESSION['user'])) {
                         <td>Electronico</td>
                         <td>Admin Admin</td>
                         <td>3 de marzo de 2024</td>
+                        <td><button><i class='bx bxs-edit'></i></button></td>
                     </tr>
-                    <tr>
-                        <td>
-                            <form action='edit.php?users' method='post'>
-                                <input type='hidden' value=" . $user['user_id'] . " name='id'>
-                                <input type='hidden' value='user' name='action'>
-                                <button><i class='bx bxs-edit'></i></button>
-                            </form>
-                        </td>
-                    </tr>
+
 
 
                 </tbody>
@@ -248,13 +249,13 @@ if (!isset($_SESSION['user'])) {
 
 </body>
 <script>
-let btn = document.querySelector('#btn');
-let sidebar = document.querySelector('.sidebar');
-btn.onclick = function() {
-    sidebar.classList.toggle('active');
-};
+    let btn = document.querySelector('#btn');
+    let sidebar = document.querySelector('.sidebar');
+    btn.onclick = function() {
+        sidebar.classList.toggle('active');
+    };
 
-let changeIcon = (icon) => icon.classList.toggle('bx-x');
+    let changeIcon = (icon) => icon.classList.toggle('bx-x');
 </script>
 
 </html>
