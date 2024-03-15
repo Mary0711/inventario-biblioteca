@@ -16,25 +16,37 @@
 
 
 -- Dumping database structure for inventario
+DROP DATABASE IF EXISTS `inventario`;
 CREATE DATABASE IF NOT EXISTS `inventario` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `inventario`;
 
--- Dumping structure for table inventario.log
-CREATE TABLE IF NOT EXISTS `log` (
-  `user_id` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `task` varchar(50) NOT NULL DEFAULT '',
-  `object` varchar(255) NOT NULL DEFAULT '',
-  KEY `log_user` (`user_id`),
-  KEY `log_object` (`object`),
-  CONSTRAINT `log_object` FOREIGN KEY (`object`) REFERENCES `object` (`serial_num`),
-  CONSTRAINT `log_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+-- Dumping structure for table inventario.categories
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table inventario.log: ~0 rows (approximately)
-DELETE FROM `log`;
+-- Dumping data for table inventario.categories: ~0 rows (approximately)
+DELETE FROM `categories`;
+
+-- Dumping structure for table inventario.discontinued
+DROP TABLE IF EXISTS `discontinued`;
+CREATE TABLE IF NOT EXISTS `discontinued` (
+  `property` varchar(255) NOT NULL,
+  `serial` varchar(255) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `user` int(11) NOT NULL,
+  KEY `user-dis` (`user`),
+  CONSTRAINT `user-dis` FOREIGN KEY (`user`) REFERENCES `users` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table inventario.discontinued: ~0 rows (approximately)
+DELETE FROM `discontinued`;
 
 -- Dumping structure for table inventario.object
+DROP TABLE IF EXISTS `object`;
 CREATE TABLE IF NOT EXISTS `object` (
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
@@ -46,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `object` (
   `owner` int(11) NOT NULL DEFAULT 0,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`serial_num`),
+  PRIMARY KEY (`serial_num`,`property_num`) USING BTREE,
   KEY `owner` (`owner`),
   CONSTRAINT `owner` FOREIGN KEY (`owner`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -54,7 +66,40 @@ CREATE TABLE IF NOT EXISTS `object` (
 -- Dumping data for table inventario.object: ~0 rows (approximately)
 DELETE FROM `object`;
 
+-- Dumping structure for table inventario.object_log
+DROP TABLE IF EXISTS `object_log`;
+CREATE TABLE IF NOT EXISTS `object_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `task` varchar(150) NOT NULL,
+  `object` varchar(255) NOT NULL DEFAULT '',
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user-objetc` (`user_id`),
+  KEY `obect_serial` (`object`),
+  CONSTRAINT `obect_serial` FOREIGN KEY (`object`) REFERENCES `object` (`serial_num`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `user-objetc` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table inventario.object_log: ~0 rows (approximately)
+DELETE FROM `object_log`;
+
+-- Dumping structure for table inventario.subcategories
+DROP TABLE IF EXISTS `subcategories`;
+CREATE TABLE IF NOT EXISTS `subcategories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  `category` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sub-cat` (`category`),
+  CONSTRAINT `sub-cat` FOREIGN KEY (`category`) REFERENCES `categories` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table inventario.subcategories: ~0 rows (approximately)
+DELETE FROM `subcategories`;
+
 -- Dumping structure for table inventario.users
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
@@ -63,12 +108,31 @@ CREATE TABLE IF NOT EXISTS `users` (
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `role` varchar(50) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table inventario.users: ~1 rows (approximately)
+-- Dumping data for table inventario.users: ~2 rows (approximately)
 DELETE FROM `users`;
 INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `status`, `role`) VALUES
-	(6, 'Jean C Serrano Cruz', 'jean.serrano7@upr.edu', '$2y$10$tjxdaPbp2o/I7YQt2186OOJOmm9B6WporklAk.MXpFySaMPkZK6xW', 1, 'admin');
+	(14, 'Jean C Serrano Cruz', 'jean.serrano7@upr.edu', '$2y$10$TDF5mc.tGX8EDSKGVX/yRuo8tns7e0ITPJad.DTjQlHcVIfowaFkK', 1, 'admin'),
+	(15, 'Juan del Pueblo', 'juan.pueblo@upr.edu', '$2y$10$537/7FZTfcJKRmKrUZBx.egPOSWVHzFbVKuWckNFz9qmzshCq6yu6', 1, 'user');
+
+-- Dumping structure for table inventario.user_log
+DROP TABLE IF EXISTS `user_log`;
+CREATE TABLE IF NOT EXISTS `user_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `task` varchar(150) NOT NULL,
+  `user_from` int(11) NOT NULL,
+  `user_to` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_from` (`user_from`),
+  KEY `user_to` (`user_to`),
+  CONSTRAINT `user_from` FOREIGN KEY (`user_from`) REFERENCES `users` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `user_to` FOREIGN KEY (`user_to`) REFERENCES `users` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table inventario.user_log: ~0 rows (approximately)
+DELETE FROM `user_log`;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
