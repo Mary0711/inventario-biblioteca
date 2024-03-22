@@ -5,7 +5,7 @@ class user extends DB
 {
     private $username;
     private $email;
-    private $user_id;
+    protected $user_id;
     private $role;
 
     function __construct($user_id, $username, $email, $role)
@@ -29,6 +29,42 @@ class user extends DB
     public function get_role()
     {
         return $this->role;
+    }
+
+    public function get_allObjects()
+    {
+        $query = "SELECT * FROM object";
+        $this->start_connection();
+        $result = $this->run_query($query);
+
+        $objects = array(); //para almacenar toda la info dentro del array
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if ($row['status'] == 1) {
+                    $row['status'] = "activo";
+                } else {
+                    $row['status'] = "inactivo";
+                }
+                array_push($objects, $row); //meter fila dentro del array
+            }
+            return $objects;
+        } else {
+            return false;         //si la tabla esta vacia devuelve un false
+        }
+    }
+
+    public function get_object($serial_num)
+    {
+        $query = "SELECT * FROM object WHERE serial_num = " . $serial_num . "";
+
+        $this->start_connection();
+        $result = $this->run_query($query);
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        } else {
+            return false;
+        }
     }
 }
 
