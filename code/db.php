@@ -17,7 +17,7 @@ class DB
     public function start_connection()
     {
         try {
-            $this->conn = mysqli_connect($this->servername, $this->username, $this->pass, $this->dbname, "3305");
+            $this->conn = mysqli_connect($this->servername, $this->username, $this->pass, $this->dbname, "3306");
         } catch (Exception $e) {
             $this->conn = mysqli_connect($this->servername, $this->username, $this->pass, $this->dbname, "3306");
         }
